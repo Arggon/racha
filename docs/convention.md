@@ -31,6 +31,15 @@ tasks/
 - Spikes/exploraciones viven en `docs/explorations/`, decisiones en
   `docs/adr/`; ambos se referencian desde el work item que los origina.
 - Ramas: patrones de `tasks/.convention.yml` (`feat/<id>`, `fix/<id>`).
+- Hook de worktree (`x-worktree.post-start: "cargo check"`): cada worktree
+  nuevo que crea `arggon start --worktree` corre `cargo check` al final del
+  arranque. **Si falla, no es fatal**: el worktree existe y el claim queda
+  en pie; la salida humana imprime `post-start failed: <comando> → <stderr
+  tail>` (últimas 3 líneas de stderr) y el comando igualmente sale 0; en
+  `--json` el campo `postStart` viene con `ok: false` + `error`. Con attach
+  (re-run de start) o `--no-hook` el hook no corre y el campo no aparece.
+  Fuente: docs/convention.md de ArggonManager (§x-worktree), verificado en
+  el arranque de los worktrees de este repo.
 
 ## Frontmatter schema
 
