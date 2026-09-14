@@ -1,0 +1,20 @@
+---
+type: task
+status: todo
+id: task-issue-1
+title: "issue #1: Motor de rachas y estadísticas"
+parent: story-imported-issues
+labels: [enhancement]
+created: "2026-09-14"
+updated: "2026-09-14"
+issue: 1
+---
+El motor ya existe en versión mínima (racha actual, mejor racha, vista semanal) pero falta completar el dominio:
+
+- [ ] estadísticas agregadas por período (mes, año)
+- [ ] porcentaje de cumplimiento semanal
+- [ ] manejo de zonas horarias documentado y testeado en fronteras de día
+- [ ] API interna (crate lib) estable para consumos externos (reminders, web)
+
+Criterio de aceptación: tests unitarios de cada regla de racha + documentación actualizada en docs/FORMAT.md.
+> imported from issue #1

@@ -1,0 +1,116 @@
+version: 3
+branch_patterns:
+  initiative: "feat/{id}"
+  epic: "feat/{id}"
+  story: "feat/{id}"
+  task: "feat/{id}"
+  bug: "fix/{id}"
+
+x-import:
+  label-types:
+    bug: bug
+    enhancement: task
+
+x-tracker:
+  auto-commit: true
+
+x-worktree:
+  post-start: "cargo check"
+
+x-generated:
+  .agents/skills/arggon-cli/SKILL.md:
+    template: "skills/arggon-cli/SKILL.md"
+    checksum: "sha256:4338bb0fcfa5bcf462be7684123e5a096315d242543c954dec53001cc5eb4427"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  .editorconfig:
+    template: "docs/editorconfig"
+    checksum: "sha256:3ec6b7e9cd3ef159cecafe2ab1ab64baadaf1dc0785eb45fea21709ab554d8ce"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  .github/CODEOWNERS:
+    template: "docs/github/CODEOWNERS"
+    checksum: "sha256:302e829709833e63d57f3df7f18aedb20c9971117929e12dc9a031ed7c958b19"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  .github/PULL_REQUEST_TEMPLATE.md:
+    template: "docs/github/PULL_REQUEST_TEMPLATE.md"
+    checksum: "sha256:3bfb97564291b8ba8a00ca29c4cb4b292819581f396cf68e6efb25c1b637e255"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  .github/copilot-instructions.md:
+    template: "docs/github/copilot-instructions.md"
+    checksum: "sha256:c1bb1c4eb1721516e60754fefa7a2d9df008206f6df322348a4577036776def6"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  AGENTS.md:
+    template: "docs/AGENTS.md"
+    checksum: "sha256:a8cd8d8c23bfc6c6008dc32dd25f0e81421a8768d455f8468a912017ab347409"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  ARCHITECTURE.md:
+    template: "docs/ARCHITECTURE.md"
+    checksum: "sha256:605238fbfbc55127ea0a04d934cbd6a3cfaef33224d968fd41fc27553e8923f9"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  CHANGELOG.md:
+    template: "docs/CHANGELOG.md"
+    checksum: "sha256:277410a7412215500e99eac5f6a5a90d2555d998b654d54a77d8351d19040760"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  CLAUDE.md:
+    template: "docs/CLAUDE.md"
+    checksum: "sha256:63e50bfeda0d64c0c4b921f8be72bf10c0418603c6fe41b6e12de08f84765558"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  CONTRIBUTING.md:
+    template: "docs/CONTRIBUTING.md"
+    checksum: "sha256:4c58b012db55ddf255c75cbc8c942f78240e54a827b5d5089e15e7a27127691a"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  SECURITY.md:
+    template: "docs/SECURITY.md"
+    checksum: "sha256:5dd0ae80361e4ab335a3a1b98fb290094f0276889d9f74377d43a6564f001f90"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  SUPPORT.md:
+    template: "docs/SUPPORT.md"
+    checksum: "sha256:ee6f4a06b85f675625bd5a2b574afee74778b4069e18b9edde405b4f2508d2c4"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  docs/convention.md:
+    template: "docs/docs/convention.md"
+    checksum: "sha256:71b8ab1441623349ff2022e1c42673ae1309841d70de0734ceaeda513234fec2"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  docs/engineering.md:
+    template: "docs/docs/engineering.md"
+    checksum: "sha256:448b9306d3b5eb5e17ef2d1193802bd44ab95bdb73bbf2689829e57ba032b260"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  docs/runbooks/README.md:
+    template: "docs/docs/runbooks/README.md"
+    checksum: "sha256:8619db8adfe6d46fdf08b6c58ebf1c5c556ac3d22cdfc57afd54e452f471f3b9"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
+  docs/tracking.md:
+    template: "docs/tracking.md"
+    checksum: "sha256:1cda5c8980a894f0c4e6474ba27bfaec5ee399091b92e232e980191bc5e49b44"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T01:44:25.004Z"
+    acknowledged: true
