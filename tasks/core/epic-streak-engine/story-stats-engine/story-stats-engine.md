@@ -27,10 +27,10 @@ Issue #1: completar estadísticas del motor sobre la base de la spec
 
 ## Acceptance
 
-- [ ] `racha stats` muestra total de checks del mes corriente y del año por hábito
-- [ ] % de cumplimiento de la semana corriente (checks de la semana / días transcurridos de la semana)
-- [ ] Tests unitarios de cada regla nueva + integration del output
-- [ ] docs/FORMAT.md actualizado en el mismo PR
+- [x] `racha stats` muestra total de checks del mes corriente y del año por hábito
+- [x] % de cumplimiento de la semana corriente (checks de la semana / días transcurridos de la semana)
+- [x] Tests unitarios de cada regla nueva + integration del output
+- [x] docs/FORMAT.md actualizado en el mismo PR
 
 Closes #1.
 
