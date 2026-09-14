@@ -1,6 +1,6 @@
 # ADR 0001: Usar notify-rust para notificaciones nativas de escritorio
 
-- **Status:** Proposed
+- **Status:** Accepted (on merge of PR #8)
 - **Date:** 2026-09-13
 - **Exploration:** [docs/explorations/exploration-desktop-notifications-001.md](../explorations/exploration-desktop-notifications-001.md)
 
