@@ -34,3 +34,15 @@ Evidencia en el ledger: `"name": ""` persistido.
 
 Fix esperado: rechazar en `add` (y validar en `check`) todo nombre que quede vacío tras `trim()`, con mensaje de error claro. Decide el fix qué hacer con ledgers ya contaminados (sugerido: rechazar y documentar limpieza manual).
 > imported from issue #6
+
+## Aceptación
+
+- [x] `racha add` rechaza (exit 1, error en stderr) nombres que quedan vacíos tras `trim()` ("" y "   ").
+- [x] `racha add` persiste el nombre trimeado (`"  leer  "` → `leer`).
+- [x] `racha check` trimea antes de buscar (`check "  leer  "` encuentra `leer`).
+- [x] Ledgers ya contaminados NO se limpian automáticamente; decisión documentada en `docs/FORMAT.md` (limpieza manual).
+- [x] Tests de integración en `tests/cli.rs` cubren los 4 casos; suite verde, clippy 0 warnings, fmt limpio.
+- [x] PR #10 (squash) merged con `Closes #6`.
+
+### 2026-09-14 @Arggon
+Fix en fix/bug-issue-6, PR #10 (squash, Closes #6). src/main.rs: Add trimea el nombre y rechaza con error claro (exit 1) si queda vacío; Check trimea antes de buscar. Decisión de compatibilidad: ledgers ya contaminados con nombres vacíos NO se limpian automáticamente — el fix solo previene nombres nuevos; limpieza manual documentada en docs/FORMAT.md (campo name: no vacío tras trim, se persiste trimeado). Tests: 5 integration nuevos en tests/cli.rs (add vacío falla, add solo espacios falla, add '  leer  ' persiste como 'leer', check con espacios encuentra el hábito, y no-duplicado). Nota: durante el rebase contra master apareció conflicto en tests/cli.rs con la feature list de otro agente; se preservaron ambas suites (12 integration tests totales, todo verde). cargo fmt también normalizó 2 bloques preexistentes en storage.rs/streaks.rs para pasar el gate.
