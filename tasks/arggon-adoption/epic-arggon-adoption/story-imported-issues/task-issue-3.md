@@ -19,3 +19,6 @@ Recordatorio diario programado con systemd **user** timer + service (unidades in
 
 Criterio de aceptación: timer instalado dispara `racha remind` y produce notificación visible; runbooks probados.
 > imported from issue #3
+
+### 2026-09-14 @Arggon
+Implementado por story-systemd-timer (PR #13): unidades instaladas, timer activo, disparo real con journalctl de evidencia, runbooks timer-no-dispara + notificaciones-no-aparecen.
