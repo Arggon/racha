@@ -1,6 +1,6 @@
 ---
 type: initiative
-status: todo
+status: done
 id: core
 title: "Core — motor de rachas, stats y storage"
 labels: []
