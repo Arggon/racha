@@ -21,6 +21,9 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Los 6 issues importados están resueltos en GitHub vía PRs con `Closes #N` (#1→PR 11, #2→PR 12, #3→PR 13, #4→PR 14, #5→PR 15, #6→PR 10)
+- [x] Cada item importado tiene comentario de handoff con la story implementadora y el PR
+- [x] Los 6 items importados están en estado done en este tracker
+
 
 ## Notes
