@@ -21,6 +21,17 @@ tasks/
 <!-- Adjust to this project's actual initiatives and naming habits; add project-specific
      folder rules (e.g. which initiatives exist, where spikes live). -->
 
+## Project-local conventions (racha)
+
+- Initiatives en uso: `core` (motor: rachas, stats, storage) e
+  `integraciones` (notificaciones Omarchy, recordatorios systemd, web).
+  Trabajo de hoja SIEMPRE bajo una story; nunca colgado directo de un épico.
+- Vocabulario de labels: `rust`, `notifications`, `systemd`, `web`,
+  `storage`, `testing`. Kebab-case, sin acentos.
+- Spikes/exploraciones viven en `docs/explorations/`, decisiones en
+  `docs/adr/`; ambos se referencian desde el work item que los origina.
+- Ramas: patrones de `tasks/.convention.yml` (`feat/<id>`, `fix/<id>`).
+
 ## Frontmatter schema
 
 Every work item is a Markdown file with YAML frontmatter:

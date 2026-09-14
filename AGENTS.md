@@ -7,7 +7,7 @@ Instructions for humans and AI agents working on **racha**. Read this file befor
 
 <!-- Describe the project in one or two sentences: what it does, for whom, and its core constraint. -->
 
-racha — <!-- TODO: one-sentence project description -->.
+racha — tracker de hábitos con rachas: un CLI en Rust, 100% local (ledger JSON en el data dir XDG), para usuarios de terminal que quieren registrar un hábito en dos palabras y consultar su racha en un comando. Core constraint: offline-first y datos portables; nunca hay nube ni cuentas.
 
 ## Task workflow
 

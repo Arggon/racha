@@ -29,10 +29,19 @@ A change is acceptable when it satisfies the bar above and a reviewer can answer
 
 ## Testing expectations
 
-<!-- Project-specific: coverage expectations, what needs integration vs unit tests, fixtures policy. -->
-
-- TODO: unit vs integration split.
-- TODO: what must be covered before merge.
+- **Unit tests** en el crate (`src/**/tests` o módulos `#[cfg(test)]`) para
+  toda lógica pura: el motor de rachas (`streaks`) es la referencia — cada
+  regla semántica tiene su test (fronteras de mes, gracia hasta medianoche,
+  dedup/desorden).
+- **Integration tests** en `tests/cli.rs` con `assert_cmd` contra el binario
+  real para todo cambio de comportamiento visible del CLI (exit codes,
+  stdout/stderr, idempotencias), siempre con data dir aislado
+  (`RACHA_DATA_DIR` a un `TempDir`) — nunca contra datos de usuario.
+- Qué debe estar cubierto antes de merge: toda regla nueva de rachas, todo
+  mensaje de error nuevo (al menos su existencia y código de salida), y el
+  round-trip de storage de cualquier cambio de esquema del ledger.
+- `cargo clippy --all-targets` sin warnings y `cargo fmt --check` limpios son
+  parte de la definición de done.
 
 ## ADRs
 
