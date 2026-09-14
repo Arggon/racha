@@ -19,3 +19,6 @@ Reporte web de solo lectura servido localmente: rachas actuales, históricos, he
 
 Criterio de aceptación: `racha web` (o equivalente) sirve la vista y refleja el ledger actual.
 > imported from issue #4
+
+### 2026-09-14 @Arggon
+Implementado por story-web-static (PR #14): racha web genera HTML estático de solo lectura; escaping testado.
