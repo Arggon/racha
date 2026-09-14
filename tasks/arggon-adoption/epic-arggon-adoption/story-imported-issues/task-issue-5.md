@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-issue-5
 title: "issue #5: Export/import de datos"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: story-imported-issues
 labels: [enhancement]
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:25:47.928Z"
 issue: 5
 ---
 Portabilidad del ledger:
