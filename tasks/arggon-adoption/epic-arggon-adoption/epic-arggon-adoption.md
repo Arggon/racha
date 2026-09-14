@@ -1,6 +1,6 @@
 ---
 type: epic
-status: todo
+status: in_progress
 id: epic-arggon-adoption
 title: ArggonManager adoption
 parent: arggon-adoption
