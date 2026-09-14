@@ -1,7 +1,7 @@
 ---
 spec_id: streak-engine-001
 title: Motor de rachas: semántica y estadísticas
-status: proposed
+status: implemented
 created: 2026-09-14
 ---
 

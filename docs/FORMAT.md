@@ -44,6 +44,12 @@ flag > variable > XDG default).
   historial (los checks se ordenan y deduplican antes de medir; cruza
   límites de mes y de año).
 - **Vista semanal**: semana calendario actual, lunes a domingo, `✓`/`·`.
+- **% de cumplimiento semanal**: checks de la semana corriente (lunes a
+  domingo, la que contiene hoy) sobre los días transcurridos de la semana
+  (hoy incluido), 0..100, redondeo hacia abajo. Un lunes con check da 100%;
+  un domingo con un solo check da 14% (1/7).
+- **Totales mensual/anual**: cantidad de checks con fecha en el mes y el
+  año corrientes (calendario local del usuario).
 
 ## Compatibilidad
 

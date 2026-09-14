@@ -2,7 +2,7 @@
 plan_id: streak-engine-001
 title: Plan for Motor de rachas: semántica y estadísticas
 spec: docs/specs/spec-streak-engine-001.md
-status: proposed
+status: implemented
 created: 2026-09-14
 ---
 
