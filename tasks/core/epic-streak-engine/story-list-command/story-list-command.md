@@ -27,11 +27,14 @@ de prueba de la carrera de claims (lock de `start --worktree`).
 
 ## Acceptance
 
-- [ ] `racha list` imprime un hábito por línea: nombre + racha actual
-- [ ] exit 0 con lista vacía y mensaje claro si no hay hábitos
-- [ ] tests de integración del output
-- [ ] README actualizado con el comando
+- [x] `racha list` imprime un hábito por línea: nombre + racha actual
+- [x] exit 0 con lista vacía y mensaje claro si no hay hábitos
+- [x] tests de integración del output
+- [x] README actualizado con el comando
 
 ## Notes
 
 - Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.
+
+### 2026-09-14 @Arggon
+implementado por agent-race-a; resultado de la carrera: {"ok":false,"schemaVersion":1,"conventionVersion":3,"command":"start","error":{"message":"working tree has changes that block start (commit or stash first):\nmodified/staged tracked files (they could collide with the claim commit):\n  asks/core/epic-streak-engine/story-list-command/story-list-command.md","code":"START_FAILED"}}
