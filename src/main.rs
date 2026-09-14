@@ -3,6 +3,7 @@ use std::process::ExitCode;
 use chrono::Local;
 use clap::{Parser, Subcommand};
 
+use racha::portable;
 use racha::remind;
 use racha::storage;
 use racha::streaks;
@@ -40,6 +41,23 @@ enum Command {
         #[arg(long)]
         out: Option<std::path::PathBuf>,
     },
+    /// Exporta el ledger a CSV o JSON (default: stdout)
+    Export {
+        /// Formato de salida: csv | json
+        #[arg(long, value_enum)]
+        format: Format,
+        /// Archivo de salida (default: stdout)
+        #[arg(long)]
+        out: Option<std::path::PathBuf>,
+    },
+    /// Importa un archivo CSV o JSON al ledger (validado, atómico, idempotente)
+    Import { file: std::path::PathBuf },
+}
+
+#[derive(clap::ValueEnum, Clone, Copy)]
+enum Format {
+    Csv,
+    Json,
 }
 
 /// Error de ejecución con su exit code: 1 = error genérico,
@@ -176,6 +194,42 @@ fn run(cli: Cli) -> Result<(), CliError> {
                         code: 2,
                     });
                 }
+            }
+        }
+        Command::Export { format, out } => {
+            let contents = match format {
+                Format::Csv => portable::to_csv(&ledger),
+                Format::Json => portable::to_json(&ledger),
+            };
+            match out {
+                Some(path) => {
+                    std::fs::write(&path, &contents)
+                        .map_err(|e| err1(format!("no pude escribir {}: {e}", path.display())))?;
+                    println!("exportado: {}", path.display());
+                }
+                None => print!("{contents}"),
+            }
+        }
+        Command::Import { file } => {
+            let raw = std::fs::read_to_string(&file)
+                .map_err(|e| err1(format!("no pude leer {}: {e}", file.display())))?;
+            // Validación completa ANTES de tocar el ledger: cualquier error
+            // acá deja el ledger existente intacto (ni siquiera se reescribe).
+            let habits = portable::parse_portable(&raw)
+                .map_err(|e| err1(format!("import inválido ({}): {e}", file.display())))?;
+            let mut imported = ledger.clone();
+            if portable::merge_into(&mut imported, habits) {
+                storage::save_atomic(&dir, &imported).map_err(err1)?;
+                println!(
+                    "importado: {} ({} hábito(s) en el ledger)",
+                    file.display(),
+                    imported.habits.len()
+                );
+            } else {
+                println!(
+                    "nada que importar: {} ya estaba reflejado en el ledger",
+                    file.display()
+                );
             }
         }
     }

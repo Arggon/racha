@@ -33,7 +33,7 @@ impl Habit {
 }
 
 /// El ledger completo: todos los hábitos con sus checks.
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Ledger {
     pub habits: Vec<Habit>,
 }

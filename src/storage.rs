@@ -42,10 +42,27 @@ pub fn load(dir: &Path) -> Result<Ledger, String> {
 
 /// Persiste el ledger creando el directorio si hace falta.
 pub fn save(dir: &Path, ledger: &Ledger) -> Result<(), String> {
+    save_atomic(dir, ledger)
+}
+
+/// Escritura atómica: serializa a un archivo temporal en el mismo directorio y
+/// hace rename sobre `ledger.json`. Un crash a mitad de escritura deja el
+/// ledger anterior intacto (rename es atómico dentro del mismo filesystem).
+pub fn save_atomic(dir: &Path, ledger: &Ledger) -> Result<(), String> {
     fs::create_dir_all(dir).map_err(|e| format!("no pude crear {}: {e}", dir.display()))?;
     let json = serde_json::to_string_pretty(ledger).expect("ledger serializable");
-    fs::write(ledger_path(dir), json + "\n")
-        .map_err(|e| format!("no pude escribir {}: {e}", ledger_path(dir).display()))
+    let target = ledger_path(dir);
+    let tmp = dir.join(format!(".ledger.json.tmp-{}", std::process::id()));
+    fs::write(&tmp, json + "\n").map_err(|e| format!("no pude escribir {}: {e}", tmp.display()))?;
+    fs::rename(&tmp, &target).map_err(|e| {
+        let _ = fs::remove_file(&tmp);
+        format!(
+            "no pude renombrar {} → {}: {e}",
+            tmp.display(),
+            target.display()
+        )
+    })?;
+    Ok(())
 }
 
 #[cfg(test)]

@@ -80,6 +80,34 @@ vista web generada: ./racha-web/index.html
   inyectar markup.
 
 Para refrescar los datos, volvé a correr `racha web` y recargá la página.
+## Portabilidad: `racha export` / `racha import`
+
+El ledger es tuyo: exportalo a JSON canónico o CSV, y volvé a importarlo en
+cualquier máquina (o después de un desastre — ver el
+[runbook de restore](docs/runbooks/restore-de-datos.md)).
+
+```console
+$ racha export --format json --out backup.json   # default: stdout
+$ racha export --format csv                      # a stdout
+habit,date
+meditar,2026-09-12
+meditar,2026-09-13
+$ racha import backup.json
+importado: backup.json (2 hábito(s) en el ledger)
+```
+
+- **JSON canónico**: `{"version":1,"habits":[{"name":...,"created":...,"checks":[...]}]}`
+  — el mismo shape del ledger más el campo `version` (ver [docs/FORMAT.md](docs/FORMAT.md)).
+- **CSV**: header `habit,date`, una fila por check, ordenado. (No viaja
+  `created`; en el import se toma la primera check importada.)
+- **Import validado**: detecta el formato por contenido (no por extensión);
+  valida fechas ISO, nombres no vacíos y ausencia de checks duplicados ANTES
+  de escribir. Ante cualquier error: mensaje claro, exit 1, y el ledger
+  existente queda intocado.
+- **Idempotente**: importar dos veces el mismo archivo no duplica nada
+  (dedup por nombre+fecha; el merge con un ledger existente es aditivo).
+- **Escritura atómica**: todo guardado del ledger es temp-file + rename
+  (`save_atomic`): un crash a mitad de escritura nunca deja un ledger truncado.
 
 ## Stack
 
