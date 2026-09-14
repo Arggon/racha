@@ -1,6 +1,6 @@
 ---
 type: story
-status: in_progress
+status: done
 id: story-imported-issues
 title: Imported GitHub issues
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: epic-arggon-adoption
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:26:08.004Z"
 ---
 <!--
   Placement (v0): tasks/arggon-adoption/epic-arggon-adoption/story-imported-issues/story-imported-issues.md (story index; required).
