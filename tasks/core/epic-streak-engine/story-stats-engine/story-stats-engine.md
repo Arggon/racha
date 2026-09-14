@@ -1,6 +1,6 @@
 ---
 type: story
-status: in_progress
+status: done
 id: story-stats-engine
 title: "Estadísticas agregadas: mes/año y % de cumplimiento semanal"
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: epic-streak-engine
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:05:18.286Z"
 depends_on: [story-streak-engine-spec]
 worktree_path: /home/arggon/Projects/racha-story-stats-engine
 ---
