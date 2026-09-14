@@ -1,6 +1,6 @@
 ---
 type: story
-status: in_progress
+status: done
 id: story-streak-engine-spec
 title: Spec + plan del motor de rachas
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: epic-streak-engine
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T01:53:27.744Z"
 worktree_path: /home/arggon/Projects/racha-story-streak-engine-spec
 ---
 <!--
