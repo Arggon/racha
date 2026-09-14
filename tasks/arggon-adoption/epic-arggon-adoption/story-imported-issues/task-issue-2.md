@@ -20,3 +20,6 @@ Disparar notificaciones nativas del escritorio (Omarchy: Arch + Hyprland + Wayla
 
 Criterio de aceptación: una notificación visible en Omarchy disparada por `racha remind`.
 > imported from issue #2
+
+### 2026-09-14 @Arggon
+Implementado por story-remind-command (PR #12); ADR-0001 + exploración en PR #8; notificación real verificada en pantalla.
