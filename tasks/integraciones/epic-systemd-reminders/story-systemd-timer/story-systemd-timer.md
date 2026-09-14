@@ -7,6 +7,7 @@ parent: epic-systemd-reminders
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+depends_on: [story-remind-command]
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-systemd-reminders/story-systemd-timer/story-systemd-timer.md (story index; required).
