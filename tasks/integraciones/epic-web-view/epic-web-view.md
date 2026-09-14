@@ -1,6 +1,6 @@
 ---
 type: epic
-status: todo
+status: in_progress
 id: epic-web-view
 title: Vista web de solo lectura
 parent: integraciones
