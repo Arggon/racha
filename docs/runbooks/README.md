@@ -9,6 +9,8 @@ Operational runbooks for racha: step-by-step procedures for incidents, maintenan
 
 - [timer-no-dispara.md](timer-no-dispara.md) — el timer de systemd no dispara el recordatorio diario.
 - [notificaciones-no-aparecen.md](notificaciones-no-aparecen.md) — el timer dispara pero no se ve la notificación (Wayland/DBus).
+- [restore-de-datos.md](restore-de-datos.md) — ledger perdido/corrupto: recuperar desde un export
+- <!-- runbook-name.md — when to use it -->
 
 ## Writing a runbook
 

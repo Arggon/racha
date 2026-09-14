@@ -30,6 +30,9 @@ flag > variable > XDG default).
 - El archivo se reescribe entero en cada mutación (pretty-printed, `serde_json`).
 - Ledger ausente = estado vacío válido (primer uso). Ledger inválido = error
   claro, nunca se sobreescribe.
+- **Portabilidad**: `racha export --format json` emite este mismo shape con un
+campo `"version": 1` agregado; `racha import` lo valida y mergea de forma
+idempotente (y acepta CSV `habit,date`). Ver README §Export/import.
 - **Compatibilidad**: ledgers previos que ya contienen hábitos con `name`
   vacío o de solo espacios NO se limpian automáticamente; el fix solo previene
   nombres vacíos nuevos. Limpieza manual: editar `ledger.json` (con racha

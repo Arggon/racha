@@ -1,13 +1,17 @@
 ---
 type: story
-status: todo
+status: in_progress
 id: story-export-import
 title: Export/import del ledger + runbook de restore
+assignee: Arggon
+branch: feat/story-export-import
 parent: epic-data-portability
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+claimed_at: "2026-09-14T02:15:29.971Z"
 depends_on: [story-streak-engine-spec]
+worktree_path: /home/arggon/Projects/racha-story-export-import
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-data-portability/story-export-import/story-export-import.md (story index; required).

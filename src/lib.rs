@@ -1,4 +1,5 @@
 pub mod model;
+pub mod portable;
 pub mod remind;
 pub mod storage;
 pub mod streaks;
