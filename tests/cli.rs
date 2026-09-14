@@ -238,3 +238,53 @@ fn remind_without_session_bus_fails_with_exit_code_2() {
         .code(2)
         .stderr(predicates::str::contains("no pude notificar"));
 }
+
+#[test]
+fn web_creates_index_html_with_expected_content() {
+    let data = TempDir::new().unwrap();
+    let out = TempDir::new().unwrap();
+    racha(&data).args(["add", "meditar"]).assert().success();
+    racha(&data).args(["check", "meditar"]).assert().success();
+
+    racha(&data)
+        .args(["web", "--out", out.path().to_str().unwrap()])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("vista web generada"));
+
+    let path = out.path().join("index.html");
+    assert!(path.exists());
+    let html = std::fs::read_to_string(&path).unwrap();
+    assert!(!html.is_empty());
+    assert!(html.contains("<!DOCTYPE html>"));
+    assert!(html.contains("meditar"));
+    assert!(html.contains("racha actual"));
+    assert!(html.contains("mejor racha"));
+    assert!(html.contains("total checks"));
+}
+
+#[test]
+fn web_defaults_to_racha_web_dir_relative_to_cwd() {
+    let data = TempDir::new().unwrap();
+    let cwd = TempDir::new().unwrap();
+    racha(&data).args(["add", "leer"]).assert().success();
+    racha(&data)
+        .current_dir(cwd.path())
+        .args(["web"])
+        .assert()
+        .success();
+    let html = std::fs::read_to_string(cwd.path().join("racha-web/index.html")).unwrap();
+    assert!(html.contains("leer"));
+}
+
+#[test]
+fn web_with_empty_ledger_shows_empty_message() {
+    let data = TempDir::new().unwrap();
+    let out = TempDir::new().unwrap();
+    racha(&data)
+        .args(["web", "--out", out.path().to_str().unwrap()])
+        .assert()
+        .success();
+    let html = std::fs::read_to_string(out.path().join("index.html")).unwrap();
+    assert!(html.contains("sin hábitos todavía"));
+}

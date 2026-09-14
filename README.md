@@ -61,6 +61,25 @@ systemctl --user enable --now racha-remind.timer
 
 Diagnóstico operativo: [docs/runbooks/timer-no-dispara.md](docs/runbooks/timer-no-dispara.md)
 y [docs/runbooks/notificaciones-no-aparecen.md](docs/runbooks/notificaciones-no-aparecen.md).
+## Vista web: `racha web`
+
+Genera una página HTML estática de SOLO lectura con las estadísticas de todos
+los hábitos: racha actual, mejor racha, total, % de la semana, totales del mes
+y del año, la vista semanal (✓/·) y los últimos 14 días por hábito.
+
+```console
+$ racha web [--out <dir>]
+vista web generada: ./racha-web/index.html
+```
+
+- Sin servidor y sin estado: el resultado es un único `index.html` abrible
+  directo con `file://` (default: `racha-web/index.html` relativo a cwd).
+- Escribir en el ledger sigue siendo territorio del CLI (`racha check`); la
+  página es una foto del momento en que se generó.
+- Los nombres de hábito se escapan HTML: un hábito llamado `<script>` no puede
+  inyectar markup.
+
+Para refrescar los datos, volvé a correr `racha web` y recargá la página.
 
 ## Stack
 

@@ -34,6 +34,12 @@ enum Command {
     Stats { name: Option<String> },
     /// Notifica los hábitos sin check hoy (canal nativo freedesktop)
     Remind,
+    /// Genera la vista web estática de solo lectura (./racha-web/index.html)
+    Web {
+        /// Directorio de salida para index.html (default: ./racha-web)
+        #[arg(long)]
+        out: Option<std::path::PathBuf>,
+    },
 }
 
 /// Error de ejecución con su exit code: 1 = error genérico,
@@ -131,6 +137,16 @@ fn run(cli: Cli) -> Result<(), CliError> {
                 }
             }
         },
+        Command::Web { out } => {
+            let dir = out.unwrap_or_else(|| std::path::PathBuf::from("racha-web"));
+            let html = racha::web::render(&ledger, today);
+            std::fs::create_dir_all(&dir)
+                .map_err(|e| err1(format!("no pude crear {}: {e}", dir.display())))?;
+            let path = dir.join("index.html");
+            std::fs::write(&path, &html)
+                .map_err(|e| err1(format!("no pude escribir {}: {e}", path.display())))?;
+            println!("vista web generada: {}", path.display());
+        }
         Command::Remind => {
             if ledger.habits.is_empty() {
                 println!("sin hábitos todavía — probá: racha add meditar");
