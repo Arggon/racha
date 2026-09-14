@@ -6,6 +6,17 @@ branch_patterns:
   task: "feat/{id}"
   bug: "fix/{id}"
 
+x-import:
+  label-types:
+    bug: bug
+    enhancement: task
+
+x-tracker:
+  auto-commit: true
+
+x-worktree:
+  post-start: "cargo check"
+
 x-generated:
   .agents/skills/arggon-cli/SKILL.md:
     template: "skills/arggon-cli/SKILL.md"
