@@ -1,6 +1,6 @@
 ---
 type: story
-status: in_progress
+status: done
 id: story-export-import
 title: Export/import del ledger + runbook de restore
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: epic-data-portability
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:15:29.971Z"
 depends_on: [story-streak-engine-spec]
 worktree_path: /home/arggon/Projects/racha-story-export-import
 ---
