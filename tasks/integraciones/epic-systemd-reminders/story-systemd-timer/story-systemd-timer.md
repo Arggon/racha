@@ -1,13 +1,17 @@
 ---
 type: story
-status: todo
+status: in_progress
 id: story-systemd-timer
 title: Timer + service de usuario + runbooks operativos
+assignee: Arggon
+branch: feat/story-systemd-timer
 parent: epic-systemd-reminders
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+claimed_at: "2026-09-14T02:15:31.166Z"
 depends_on: [story-remind-command]
+worktree_path: /home/arggon/Projects/racha-story-systemd-timer
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-systemd-reminders/story-systemd-timer/story-systemd-timer.md (story index; required).

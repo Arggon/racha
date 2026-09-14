@@ -7,7 +7,8 @@ Operational runbooks for racha: step-by-step procedures for incidents, maintenan
 
 <!-- One bullet per runbook, most-used first. -->
 
-- <!-- runbook-name.md — when to use it -->
+- [timer-no-dispara.md](timer-no-dispara.md) — el timer de systemd no dispara el recordatorio diario.
+- [notificaciones-no-aparecen.md](notificaciones-no-aparecen.md) — el timer dispara pero no se ve la notificación (Wayland/DBus).
 
 ## Writing a runbook
 

@@ -1,0 +1,20 @@
+# racha-remind.timer — agenda diaria de `racha remind`.
+#
+# Para cambiar la hora del recordatorio, editá OnCalendar (formato
+# calendario de systemd, ver systemd.time(7)). Ejemplos:
+#   *-*-* 09:00:00      todos los dias a las 09:00 (default)
+#   *-*-* 09:00,21:00   dos veces al dia (09:00 y 21:00)
+#   Mon *-*-* 08:00:00  solo lunes a las 08:00
+# Tras editar: systemctl --user daemon-reload && systemctl --user restart racha-remind.timer
+
+[Unit]
+Description=racha: recordatorio diario de habitos
+
+[Timer]
+OnCalendar=*-*-* 09:00:00
+# Persistent=true: si la maquina estaba apagada a las 09:00, el servicio se
+# dispara apenas arranca la sesion (recupera el disparo perdido).
+Persistent=true
+
+[Install]
+WantedBy=timers.target
