@@ -1,6 +1,6 @@
 ---
 type: epic
-status: in_progress
+status: done
 id: epic-desktop-notifications
 title: Notificaciones nativas de escritorio (Omarchy)
 parent: integraciones
