@@ -41,6 +41,27 @@ Comportamiento:
 El exit code 2 es el camino degradado pensado para el timer de systemd: el
 comando falla en claro si no hay daemon de notificaciones, sin corromper datos.
 
+## Recordatorios programados (systemd user timer)
+
+Para que el recordatorio llegue solo todos los días a las 09:00, instalá el
+binario y un user timer de systemd (4 comandos):
+
+```bash
+install -Dm755 target/release/racha ~/.local/bin/racha
+mkdir -p ~/.config/systemd/user && cp packaging/systemd/user/* ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now racha-remind.timer
+```
+
+- `racha-remind.service` (oneshot) corre `racha remind`; se ordena después de
+  `graphical-session.target` para que el bus de sesión ya exista.
+- `racha-remind.timer` dispara con `OnCalendar=*-*-* 09:00:00` (editá la hora
+  en el archivo, hay ejemplos) y `Persistent=true`: si la máquina estaba
+  apagada a las 09:00, recupera el disparo al arrancar la sesión.
+
+Diagnóstico operativo: [docs/runbooks/timer-no-dispara.md](docs/runbooks/timer-no-dispara.md)
+y [docs/runbooks/notificaciones-no-aparecen.md](docs/runbooks/notificaciones-no-aparecen.md).
+
 ## Stack
 
 | Pieza     | Elección                             |

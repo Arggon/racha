@@ -1,0 +1,19 @@
+# racha-remind.service — dispara `racha remind` (notifica hábitos sin check hoy).
+#
+# Por qué After=graphical-session.target: `racha remind` envía notificaciones
+# de escritorio vía D-Bus (notify-rust/zbus). Para que aparezcan en pantalla
+# necesitamos el bus de sesión del entorno gráfico ya levantado; al ordenar el
+# servicio después de graphical-session.target evitamos disparar antes de que
+# exista un notification daemon. Nota: los user units no heredan
+# DBUS_SESSION_BUS_ADDRESS, pero zbus hace fallback a
+# unix:path=/run/user/$UID/bus, que es el bus de sesión estándar.
+#
+# Type=oneshot: el comando corre una vez, notifica y termina; no hay daemon.
+
+[Unit]
+Description=racha: recordatorio de habitos sin check hoy
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/racha remind
