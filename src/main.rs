@@ -135,5 +135,17 @@ fn print_habit(habit: &racha::Habit, today: chrono::NaiveDate) {
     println!("  racha actual : {current} día(s)");
     println!("  mejor racha  : {best} día(s)");
     println!("  total checks : {}", streaks::total_checks(&habit.checks));
+    println!(
+        "  % semana     : {}%",
+        streaks::week_completion(&habit.checks, today)
+    );
+    println!(
+        "  mes          : {}",
+        streaks::checks_in_month(&habit.checks, today)
+    );
+    println!(
+        "  año          : {}",
+        streaks::checks_in_year(&habit.checks, today)
+    );
     println!("  semana (L..D): {week_str}");
 }

@@ -110,6 +110,34 @@ fn list_shows_one_habit_per_line_with_streak() {
 }
 
 #[test]
+fn stats_shows_week_percentage_month_and_year() {
+    let data = TempDir::new().unwrap();
+    racha(&data).args(["add", "meditar"]).assert().success();
+    racha(&data).args(["check", "meditar"]).assert().success();
+    racha(&data)
+        .args(["stats", "meditar"])
+        .assert()
+        .success()
+        .stdout(
+            predicates::str::contains("% semana     : ")
+                .and(predicates::str::contains("mes          : 1"))
+                .and(predicates::str::contains("año          : 1")),
+        );
+}
+
+#[test]
+fn stats_all_habits_show_new_metrics() {
+    let data = TempDir::new().unwrap();
+    racha(&data).args(["add", "agua"]).assert().success();
+    racha(&data).args(["check", "agua"]).assert().success();
+    racha(&data).args(["stats"]).assert().success().stdout(
+        predicates::str::contains("% semana     : ")
+            .and(predicates::str::contains("mes          : 1"))
+            .and(predicates::str::contains("año          : 1")),
+    );
+}
+
+#[test]
 fn add_empty_name_fails() {
     let data = TempDir::new().unwrap();
     racha(&data)
@@ -156,4 +184,15 @@ fn check_trims_name_before_lookup() {
         .assert()
         .success()
         .stdout(predicates::str::contains("racha actual: 1"));
+}
+
+#[test]
+fn integrations_consume_streaks_engine_without_duplicating_logic() {
+    // T4 del plan: la superficie `racha::streaks` es consumible desde afuera.
+    use chrono::NaiveDate;
+    let today = NaiveDate::from_ymd_opt(2026, 9, 13).unwrap();
+    let checks = vec![today];
+    assert_eq!(racha::streaks::current_streak(&checks, today), 1);
+    assert_eq!(racha::streaks::week_completion(&checks, today), 14); // 1/7
+    assert_eq!(racha::streaks::checks_in_month(&checks, today), 1);
 }

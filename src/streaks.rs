@@ -56,6 +56,29 @@ pub fn total_checks(checks: &[NaiveDate]) -> usize {
     checks.len()
 }
 
+/// Checks con fecha en el mes de `today`.
+pub fn checks_in_month(checks: &[NaiveDate], today: NaiveDate) -> usize {
+    checks
+        .iter()
+        .filter(|d| d.year() == today.year() && d.month() == today.month())
+        .count()
+}
+
+/// Checks con fecha en el año de `today`.
+pub fn checks_in_year(checks: &[NaiveDate], today: NaiveDate) -> usize {
+    checks.iter().filter(|d| d.year() == today.year()).count()
+}
+
+/// % de cumplimiento de la semana corriente: checks de la semana
+/// (lunes..domingo que contiene `today`) sobre los días transcurridos de
+/// la semana (`today` incluido), 0..100, redondeo hacia abajo.
+pub fn week_completion(checks: &[NaiveDate], today: NaiveDate) -> u32 {
+    let week = week_view(checks, today);
+    let elapsed = today.weekday().num_days_from_monday() + 1;
+    let done = week.iter().filter(|&&done| done).count() as u32;
+    done * 100 / elapsed
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -121,5 +144,99 @@ mod tests {
         assert_eq!(current_streak(&[], today), 0);
         assert_eq!(best_streak(&[]), 0);
         assert_eq!(week_view(&[], today), [false; 7]);
+    }
+
+    #[test]
+    fn checks_in_month_counts_only_current_month() {
+        // Septiembre (30 días) vs agosto y octubre.
+        let today = d(2026, 9, 30);
+        let checks = vec![
+            d(2026, 9, 1),
+            d(2026, 9, 30),
+            d(2026, 8, 31),
+            d(2026, 10, 1),
+            d(2025, 9, 15),
+        ];
+        assert_eq!(checks_in_month(&checks, today), 2);
+    }
+
+    #[test]
+    fn checks_in_month_february_28() {
+        // 2026 no es bisiesto: febrero tiene 28 días.
+        let today = d(2026, 2, 28);
+        let checks = vec![d(2026, 2, 28), d(2026, 3, 1)];
+        assert_eq!(checks_in_month(&checks, today), 1);
+    }
+
+    #[test]
+    fn checks_in_month_31_day_month_includes_last_day() {
+        let today = d(2026, 1, 31);
+        let checks = vec![d(2026, 1, 31), d(2026, 2, 1)];
+        assert_eq!(checks_in_month(&checks, today), 1);
+    }
+
+    #[test]
+    fn checks_in_year_counts_only_current_year() {
+        // 1 de enero: todo check previo es del año pasado.
+        let today = d(2026, 1, 1);
+        let checks = vec![d(2026, 1, 1), d(2025, 12, 31), d(2024, 6, 1)];
+        assert_eq!(checks_in_year(&checks, today), 1);
+        assert_eq!(checks_in_month(&checks, today), 1);
+    }
+
+    #[test]
+    fn checks_in_year_empty_day_has_no_checks() {
+        let today = d(2026, 9, 13);
+        assert_eq!(checks_in_year(&[], today), 0);
+        assert_eq!(checks_in_month(&[], today), 0);
+    }
+
+    #[test]
+    fn week_completion_full_week_from_monday() {
+        // Lunes con los 7 días chequeados: 100%.
+        let today = d(2026, 9, 13); // domingo
+        let checks: Vec<NaiveDate> = (7..=13).map(|day| d(2026, 9, day)).collect();
+        assert_eq!(week_completion(&checks, today), 100);
+    }
+
+    #[test]
+    fn week_completion_monday_counts_only_today() {
+        // Lunes: solo transcurrió 1 día; con check → 100%, sin → 0%.
+        let today = d(2026, 9, 7); // lunes
+        assert_eq!(week_completion(&[today], today), 100);
+        assert_eq!(week_completion(&[], today), 0);
+    }
+
+    #[test]
+    fn week_completion_rounds_down() {
+        // Miércoles: 3 días transcurridos, 2 con check → 66% (no 67).
+        let today = d(2026, 9, 9); // miércoles
+        let checks = vec![d(2026, 9, 7), d(2026, 9, 9)];
+        assert_eq!(week_completion(&checks, today), 66);
+    }
+
+    #[test]
+    fn week_completion_ignores_last_week_and_duplicates() {
+        // Solo cuenta checks de la semana corriente (lunes..domingo).
+        let today = d(2026, 9, 13); // domingo
+        let checks = vec![d(2026, 9, 6), d(2026, 9, 7), d(2026, 9, 7)];
+        assert_eq!(week_completion(&checks, today), 14); // 1/7
+    }
+
+    #[test]
+    fn week_completion_on_january_first() {
+        // 1 de enero de 2026 es jueves: 4 días transcurridos. La semana
+        // arranca el lunes 29-dic-2025: el check del 31-dic cuenta también
+        // (la semana calendario cruza el límite de año).
+        let today = d(2026, 1, 1); // jueves
+        let checks = vec![d(2026, 1, 1), d(2025, 12, 31)];
+        assert_eq!(week_completion(&checks, today), 50); // 2/4
+        assert_eq!(week_completion(&[d(2026, 1, 1)], today), 25); // 1/4
+    }
+
+    #[test]
+    fn week_completion_no_checks_is_zero() {
+        let today = d(2026, 9, 13);
+        assert_eq!(week_completion(&[], today), 0);
     }
 }
