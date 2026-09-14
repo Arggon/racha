@@ -1,6 +1,6 @@
 ---
 type: bug
-status: in_progress
+status: done
 id: bug-issue-6
 title: "issue #6: Bug: racha add acepta nombres vacíos o de solo espacios"
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: story-imported-issues
 labels: [bug]
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:05:13.177Z"
 issue: 6
 worktree_path: /home/arggon/Projects/racha-bug-issue-6
 ---
