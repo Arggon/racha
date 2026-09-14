@@ -21,6 +21,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Exploración + ADR-0001 (notify-rust/zbus): PR #8. racha remind con notificación nativa real verificada en pantalla: PR #12 (Closes #2). 
 
 ## Notes

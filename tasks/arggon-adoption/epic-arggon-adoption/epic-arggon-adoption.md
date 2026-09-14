@@ -21,6 +21,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Migración ejecutada (task-adopt-arggon done) y los 6 issues importados resueltos vía PRs con Closes #N (story-imported-issues done). 
 
 ## Notes

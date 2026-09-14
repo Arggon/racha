@@ -21,6 +21,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] racha web genera HTML estático de solo lectura con escaping testado: PR #14 (Closes #4). 
 
 ## Notes

@@ -21,6 +21,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Unidades service+timer instaladas y activas, disparo real con evidencia de journalctl y notificación en pantalla: PR #13 (Closes #3). Runbooks: timer-no-dispara, notificaciones-no-aparecen. 
 
 ## Notes

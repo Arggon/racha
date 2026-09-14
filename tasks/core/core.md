@@ -20,6 +20,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Iniciativa core completa: motor de rachas con spec implementada, stats, list; storage con escritura atómica; 69+ tests verdes. 
 
 ## Notes

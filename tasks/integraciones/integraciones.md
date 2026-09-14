@@ -20,6 +20,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Iniciativa integraciones completa: notificaciones nativas (ADR-0001 + remind), timer systemd con runbooks, vista web, export/import con restore. 
 
 ## Notes

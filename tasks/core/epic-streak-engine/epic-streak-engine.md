@@ -21,6 +21,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Spec+plan del motor: PR #7 (streak-engine-001, implemented), stats agregadas: PR #11 (Closes #1), racha list: PR #9. Todas las stories del épico done. 
 
 ## Notes

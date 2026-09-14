@@ -21,6 +21,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Adopt out-of-the-box con jerarquía auto-creada (iniciativa→épico), checklist de migración ejecutado completo, adopt --ack con 16 docs baselineados, verificación verde (validate/spec validate/playbook status). 
 
 ## Notes

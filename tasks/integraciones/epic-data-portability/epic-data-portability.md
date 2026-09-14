@@ -21,6 +21,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Export CSV/JSON + import idempotente y atómico + round-trip byte-identical + runbook restore-de-datos: PR #15 (Closes #5). 
 
 ## Notes

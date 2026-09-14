@@ -20,6 +20,6 @@ updated: "2026-09-14"
 
 ## Acceptance
 
-- [ ] 
+- [x] Adopción de ArggonManager completa: doctor → init --full → adopt (+ jerarquía auto) → import-issues → config (auto-commit, post-start) → playbooks 0 stale. 
 
 ## Notes
