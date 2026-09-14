@@ -1,12 +1,16 @@
 ---
 type: story
-status: todo
+status: in_progress
 id: story-notify-exploration
 title: "Exploración + ADR: canal de notificaciones nativas"
+assignee: Arggon
+branch: feat/story-notify-exploration
 parent: epic-desktop-notifications
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+claimed_at: "2026-09-14T01:55:18.422Z"
+worktree_path: /home/arggon/Projects/racha-story-notify-exploration
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-desktop-notifications/story-notify-exploration/story-notify-exploration.md (story index; required).
