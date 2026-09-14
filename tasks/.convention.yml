@@ -48,6 +48,11 @@ x-generated:
     arggonVersion: "0.0.0"
     generatedAt: "2026-09-14T01:44:25.004Z"
     acknowledged: true
+  .mcp.json:
+    template: "docs/mcp-json"
+    checksum: "sha256:a2052811395c3dadbf77593031b72d7572f50e6103ddd35c8e2ca3b05e6b29fc"
+    arggonVersion: "0.0.0"
+    generatedAt: "2026-09-14T12:49:53.145Z"
   AGENTS.md:
     template: "docs/AGENTS.md"
     checksum: "sha256:a8cd8d8c23bfc6c6008dc32dd25f0e81421a8768d455f8468a912017ab347409"
