@@ -27,11 +27,14 @@ spec + plan. Los docs que nacen acá gobiernan el resto de la iniciativa core.
 
 ## Acceptance
 
-- [ ] docs/specs/ con la spec del motor: propósito, sinopsis, invariants (un check por día, unicidad de nombre, fechas locales, ledger nunca corrupto) y acceptance criteria verificables
-- [ ] docs/plans/ con el plan ordenado de tareas, cada una con criterio de verificación
-- [ ] `arggon spec validate` ok
-- [ ] Spec/plan en estado `drafted` (flip a `implemented` en el PR que aterrice la feature)
+- [x] docs/specs/ con la spec del motor: propósito, sinopsis, invariants (un check por día, unicidad de nombre, fechas locales, ledger nunca corrupto) y acceptance criteria verificables
+- [x] docs/plans/ con el plan ordenado de tareas, cada una con criterio de verificación
+- [x] `arggon spec validate` ok
+- [x] Spec/plan en estado `proposed` (flip a `implemented` en el PR de stats-engine, tarea T5 del plan)
 
 ## Notes
 
 - Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.
+
+### 2026-09-14 @Arggon
+Spec + plan publicados (PR #7, merge squash f406cb5): docs/specs/spec-streak-engine-001.md + docs/plans/plan-streak-engine-001.md. Nota de proceso: arggon start --worktree pusheó la branch desde el HEAD local incluyendo commits de master sin pushear; el squash merge divergió el master local (resuelto con reset a origin — contenido idéntico + spec). Lección: pushear master antes de start --worktree.
