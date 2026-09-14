@@ -84,3 +84,27 @@ fn stats_without_name_lists_all() {
         .success()
         .stdout(predicates::str::contains("a").and(predicates::str::contains("b")));
 }
+
+#[test]
+fn list_empty_is_friendly() {
+    let data = TempDir::new().unwrap();
+    racha(&data)
+        .args(["list"])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains(
+            "sin hábitos todavía — probá: racha add meditar",
+        ));
+}
+
+#[test]
+fn list_shows_one_habit_per_line_with_streak() {
+    let data = TempDir::new().unwrap();
+    racha(&data).args(["add", "meditar"]).assert().success();
+    racha(&data).args(["add", "leer"]).assert().success();
+    racha(&data).args(["check", "meditar"]).assert().success();
+    racha(&data).args(["list"]).assert().success().stdout(
+        predicates::str::contains("meditar — racha actual: 1 día(s)")
+            .and(predicates::str::contains("leer — racha actual: 0 día(s)")),
+    );
+}

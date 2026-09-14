@@ -3,8 +3,8 @@ use std::process::ExitCode;
 use chrono::Local;
 use clap::{Parser, Subcommand};
 
-use racha::streaks;
 use racha::storage;
+use racha::streaks;
 
 #[derive(Parser)]
 #[command(
@@ -27,6 +27,8 @@ enum Command {
     Add { name: String },
     /// Registra el check de hoy para un hábito
     Check { name: String },
+    /// Lista los hábitos con su racha actual (compacto)
+    List,
     /// Rachas actuales, mejores y vista semanal
     Stats { name: Option<String> },
 }
@@ -75,6 +77,16 @@ fn run(cli: Cli) -> Result<(), String> {
                 storage::save(&dir, &ledger)?;
             }
             println!("{msg}");
+        }
+        Command::List => {
+            if ledger.habits.is_empty() {
+                println!("sin hábitos todavía — probá: racha add meditar");
+                return Ok(());
+            }
+            for habit in &ledger.habits {
+                let streak = streaks::current_streak(&habit.checks, today);
+                println!("{} — racha actual: {} día(s)", habit.name, streak);
+            }
         }
         Command::Stats { name } => match name {
             Some(name) => {

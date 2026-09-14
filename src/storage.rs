@@ -35,8 +35,8 @@ pub fn load(dir: &Path) -> Result<Ledger, String> {
     if !path.exists() {
         return Ok(Ledger::default());
     }
-    let raw = fs::read_to_string(&path)
-        .map_err(|e| format!("no pude leer {}: {e}", path.display()))?;
+    let raw =
+        fs::read_to_string(&path).map_err(|e| format!("no pude leer {}: {e}", path.display()))?;
     serde_json::from_str(&raw).map_err(|e| format!("ledger corrupto en {}: {e}", path.display()))
 }
 

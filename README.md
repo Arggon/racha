@@ -7,6 +7,8 @@ $ racha add meditar
 hábito agregado: meditar
 $ racha check meditar
 ✓ meditar — racha actual: 1 día(s)
+$ racha list
+meditar — racha actual: 1 día(s)
 $ racha stats
 meditar
   racha actual : 1 día(s)
