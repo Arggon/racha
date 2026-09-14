@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-issue-1
 title: "issue #1: Motor de rachas y estadísticas"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: story-imported-issues
 labels: [enhancement]
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:25:47.564Z"
 issue: 1
 ---
 El motor ya existe en versión mínima (racha actual, mejor racha, vista semanal) pero falta completar el dominio:
