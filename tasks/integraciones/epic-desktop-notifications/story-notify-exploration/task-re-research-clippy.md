@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-re-research-clippy
 title: "Re-research clippy playbook (v1.98, 101 days old)"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: story-notify-exploration
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:27:08.930Z"
 ---
 ## Context
 
