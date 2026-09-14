@@ -27,13 +27,16 @@ ledger; sin backend con estado; la escritura sigue siendo CLI.
 
 ## Acceptance
 
-- [ ] `racha web [--out <dir>]` genera index.html con rachas actuales, semana y totals por hábito
-- [ ] Sin server con estado: archivo estático abrible directo
-- [ ] Test de generación (contenido mínimo esperado)
-- [ ] README actualizado
+- [x] `racha web [--out <dir>]` genera index.html con rachas actuales, semana y totals por hábito
+- [x] Sin server con estado: archivo estático abrible directo
+- [x] Test de generación (contenido mínimo esperado)
+- [x] README actualizado
 
 Closes #4.
 
 ## Notes
 
 - Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.
+
+### 2026-09-14 @Arggon
+Implementado en PR #14 (squash-merged): módulo puro src/web.rs (render(&Ledger, today) -> String) consumiendo racha::streaks; comando 'racha web [--out <dir>]' escribe index.html estático (default ./racha-web/) abrible con file://; por hábito: racha actual, mejor, total, % semana, mes, año, vista semanal y últimos 14 días; nombres escapados HTML (test de anti-XSS incluido); empty state para ledger vacío; README con sección 'Vista web'. Gates: 50 tests, clippy 0 warnings, fmt limpio. Conflicto de README en rebase resuelto preservando la sección de systemd timer (aditivo).
