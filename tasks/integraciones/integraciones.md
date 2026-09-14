@@ -1,0 +1,25 @@
+---
+type: initiative
+status: todo
+id: integraciones
+title: Integraciones — escritorio y datos
+labels: []
+created: "2026-09-14"
+updated: "2026-09-14"
+---
+<!--
+  Placement (v0): tasks/integraciones/integraciones.md (initiative index; required).
+  No parent. Omit assignee when unassigned.
+-->
+
+# Integraciones — escritorio y datos
+
+## Context
+
+<!-- Why this initiative exists. -->
+
+## Acceptance
+
+- [ ] 
+
+## Notes
