@@ -1,6 +1,6 @@
 ---
 type: epic
-status: in_progress
+status: done
 id: epic-systemd-reminders
 title: Recordatorios programados (systemd user timer)
 parent: integraciones
