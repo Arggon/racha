@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-issue-3
 title: "issue #3: Recordatorios programados (systemd user timer)"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: story-imported-issues
 labels: [enhancement]
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:25:47.745Z"
 issue: 3
 ---
 Recordatorio diario programado con systemd **user** timer + service (unidades instaladas por el proyecto, `systemctl --user`).
