@@ -18,10 +18,20 @@ depends_on: [story-remind-command]
 
 ## Context
 
-<!-- Why this story exists. -->
+Issue #3: recordatorios programados con systemd **user** units versionadas en el
+repo: service oneshot que corre `racha remind` + timer diario. Incluye runbooks
+operativos (alguien va a tener que debuggear esto a las 8am).
 
 ## Acceptance
 
-- [ ] 
+- [ ] Unidades systemd user (service + timer) en el repo (packaging/systemd/user/)
+- [ ] Instalación documentada y probada en vivo: `systemctl --user enable --now racha-remind.timer` y el timer dispara `racha remind`
+- [ ] Runbook docs/runbooks/timer-no-dispara.md
+- [ ] Runbook docs/runbooks/notificaciones-no-aparecen.md (Wayland/DBus)
+- [ ] Evidencia del disparo real (journalctl) en comentario del story
+
+Closes #3.
 
 ## Notes
+
+- Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.

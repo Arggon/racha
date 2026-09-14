@@ -17,10 +17,17 @@ updated: "2026-09-14"
 
 ## Context
 
-<!-- Why this story exists. -->
+El motor existe en versión mínima (FASE A: racha actual, mejor racha, vista semanal).
+Antes de extenderlo (stats agregadas, API para integraciones) la metodología exige
+spec + plan. Los docs que nacen acá gobiernan el resto de la iniciativa core.
 
 ## Acceptance
 
-- [ ] 
+- [ ] docs/specs/ con la spec del motor: propósito, sinopsis, invariants (un check por día, unicidad de nombre, fechas locales, ledger nunca corrupto) y acceptance criteria verificables
+- [ ] docs/plans/ con el plan ordenado de tareas, cada una con criterio de verificación
+- [ ] `arggon spec validate` ok
+- [ ] Spec/plan en estado `drafted` (flip a `implemented` en el PR que aterrice la feature)
 
 ## Notes
+
+- Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.

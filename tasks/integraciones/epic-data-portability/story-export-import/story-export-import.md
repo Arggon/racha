@@ -18,10 +18,19 @@ depends_on: [story-streak-engine-spec]
 
 ## Context
 
-<!-- Why this story exists. -->
+Issue #5: portabilidad. Export a CSV/JSON canónico e import idempotente con
+validación; más runbook de restore de datos (operación: recuperar un ledger
+perdido/corrupto desde un export).
 
 ## Acceptance
 
-- [ ] 
+- [ ] `racha export --format csv|json [--out <file>]`
+- [ ] `racha import <file>` idempotente y validado: rechaza datos inválidos sin tocar el ledger existente
+- [ ] Round-trip test: export → import no pierde ni duplica checks
+- [ ] Runbook docs/runbooks/restore-de-datos.md
+
+Closes #5.
 
 ## Notes
+
+- Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.

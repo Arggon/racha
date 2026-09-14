@@ -18,10 +18,18 @@ depends_on: [story-streak-engine-spec]
 
 ## Context
 
-<!-- Why this story exists. -->
+Issue #4: vista web de SOLO lectura. `racha web` genera HTML estático desde el
+ledger; sin backend con estado; la escritura sigue siendo CLI.
 
 ## Acceptance
 
-- [ ] 
+- [ ] `racha web [--out <dir>]` genera index.html con rachas actuales, semana y totals por hábito
+- [ ] Sin server con estado: archivo estático abrible directo
+- [ ] Test de generación (contenido mínimo esperado)
+- [ ] README actualizado
+
+Closes #4.
 
 ## Notes
+
+- Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.
