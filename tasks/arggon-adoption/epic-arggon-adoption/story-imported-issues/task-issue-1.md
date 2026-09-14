@@ -20,3 +20,6 @@ El motor ya existe en versión mínima (racha actual, mejor racha, vista semanal
 
 Criterio de aceptación: tests unitarios de cada regla de racha + documentación actualizada en docs/FORMAT.md.
 > imported from issue #1
+
+### 2026-09-14 @Arggon
+Implementado por story-stats-engine (PR #11, squash 30aa7f1); issue #1 cerrado por el PR.
