@@ -17,6 +17,30 @@ meditar
   semana (L..D): ······✓
 ```
 
+## Recordatorios: `racha remind`
+
+Lista los hábitos sin check hoy y dispara una notificación nativa de
+escritorio por cada uno (canal estándar `org.freedesktop.Notifications` vía
+[notify-rust](https://crates.io/crates/notify-rust) / zbus, sin dependencias C).
+
+```console
+$ racha remind
+vencido: meditar
+vencido: leer
+```
+
+Comportamiento:
+
+| Caso                          | Salida                                             | Exit |
+| ----------------------------- | -------------------------------------------------- | ---- |
+| Hábitos vencidos              | lista + una notificación nativa por hábito         | 0    |
+| Todos con check hoy           | `nada vencido hoy — todos los hábitos con check ✓` | 0    |
+| Sin hábitos                   | `sin hábitos todavía — probá: racha add meditar`   | 0    |
+| Sin bus de sesión D-Bus       | error en stderr indicando el hábito                | **2** |
+
+El exit code 2 es el camino degradado pensado para el timer de systemd: el
+comando falla en claro si no hay daemon de notificaciones, sin corromper datos.
+
 ## Stack
 
 | Pieza     | Elección                             |
