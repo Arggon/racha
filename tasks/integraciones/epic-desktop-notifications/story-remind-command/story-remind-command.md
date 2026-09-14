@@ -1,13 +1,17 @@
 ---
 type: story
-status: todo
+status: in_progress
 id: story-remind-command
 title: racha remind — vencimientos del día y notificación nativa
+assignee: Arggon
+branch: feat/story-remind-command
 parent: epic-desktop-notifications
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+claimed_at: "2026-09-14T02:05:19.918Z"
 depends_on: [story-notify-exploration]
+worktree_path: /home/arggon/Projects/racha-story-remind-command
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-desktop-notifications/story-remind-command/story-remind-command.md (story index; required).
