@@ -1,12 +1,16 @@
 ---
 type: story
-status: todo
+status: in_progress
 id: story-streak-engine-spec
 title: Spec + plan del motor de rachas
+assignee: Arggon
+branch: feat/story-streak-engine-spec
 parent: epic-streak-engine
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+claimed_at: "2026-09-14T01:53:27.744Z"
+worktree_path: /home/arggon/Projects/racha-story-streak-engine-spec
 ---
 <!--
   Placement (v0): tasks/core/epic-streak-engine/story-streak-engine-spec/story-streak-engine-spec.md (story index; required).
