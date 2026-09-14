@@ -1,6 +1,6 @@
 ---
 type: story
-status: in_progress
+status: done
 id: story-systemd-timer
 title: Timer + service de usuario + runbooks operativos
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: epic-systemd-reminders
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:15:31.166Z"
 depends_on: [story-remind-command]
 worktree_path: /home/arggon/Projects/racha-story-systemd-timer
 ---
@@ -28,11 +27,11 @@ operativos (alguien va a tener que debuggear esto a las 8am).
 
 ## Acceptance
 
-- [ ] Unidades systemd user (service + timer) en el repo (packaging/systemd/user/)
-- [ ] Instalación documentada y probada en vivo: `systemctl --user enable --now racha-remind.timer` y el timer dispara `racha remind`
-- [ ] Runbook docs/runbooks/timer-no-dispara.md
-- [ ] Runbook docs/runbooks/notificaciones-no-aparecen.md (Wayland/DBus)
-- [ ] Evidencia del disparo real (journalctl) en comentario del story
+- [x] Unidades systemd user (service + timer) en el repo (packaging/systemd/user/)
+- [x] Instalación documentada y probada en vivo: `systemctl --user enable --now racha-remind.timer` y el timer dispara `racha remind`
+- [x] Runbook docs/runbooks/timer-no-dispara.md
+- [x] Runbook docs/runbooks/notificaciones-no-aparecen.md (Wayland/DBus)
+- [x] Evidencia del disparo real (journalctl) en comentario del story
 
 Closes #3.
 
