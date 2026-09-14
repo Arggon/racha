@@ -1,13 +1,17 @@
 ---
 type: story
-status: todo
+status: in_progress
 id: story-web-static
 title: racha web — HTML estático de solo lectura
+assignee: Arggon
+branch: feat/story-web-static
 parent: epic-web-view
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+claimed_at: "2026-09-14T02:15:49.116Z"
 depends_on: [story-streak-engine-spec]
+worktree_path: /home/arggon/Projects/racha-story-web-static
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-web-view/story-web-static/story-web-static.md (story index; required).
