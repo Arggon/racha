@@ -126,6 +126,28 @@ fn stats_shows_week_percentage_month_and_year() {
 }
 
 #[test]
+fn remind_without_habits_is_friendly() {
+    let data = TempDir::new().unwrap();
+    racha(&data)
+        .args(["remind"])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("sin hábitos"));
+}
+
+#[test]
+fn remind_with_everything_checked_is_quiet_success() {
+    let data = TempDir::new().unwrap();
+    racha(&data).args(["add", "meditar"]).assert().success();
+    racha(&data).args(["check", "meditar"]).assert().success();
+    racha(&data)
+        .args(["remind"])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("nada vencido hoy"));
+}
+
+#[test]
 fn stats_all_habits_show_new_metrics() {
     let data = TempDir::new().unwrap();
     racha(&data).args(["add", "agua"]).assert().success();
@@ -195,4 +217,24 @@ fn integrations_consume_streaks_engine_without_duplicating_logic() {
     assert_eq!(racha::streaks::current_streak(&checks, today), 1);
     assert_eq!(racha::streaks::week_completion(&checks, today), 14); // 1/7
     assert_eq!(racha::streaks::checks_in_month(&checks, today), 1);
+}
+
+#[test]
+fn remind_without_session_bus_fails_with_exit_code_2() {
+    let data = TempDir::new().unwrap();
+    racha(&data).args(["add", "leer"]).assert().success();
+    // vencido: sin check hoy y sin bus de sesión (env limpiada)
+    racha(&data)
+        .args(["remind"])
+        // Dirección de bus inválida: simula sesión sin daemon D-Bus (zbus
+        // tiene fallback a /run/user/$UID/bus, con solo env -u no alcanza).
+        .env(
+            "DBUS_SESSION_BUS_ADDRESS",
+            "unix:path=/tmp/racha-sin-bus-inexistente",
+        )
+        .env_remove("XDG_RUNTIME_DIR")
+        .assert()
+        .failure()
+        .code(2)
+        .stderr(predicates::str::contains("no pude notificar"));
 }
