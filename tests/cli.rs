@@ -108,3 +108,52 @@ fn list_shows_one_habit_per_line_with_streak() {
             .and(predicates::str::contains("leer — racha actual: 0 día(s)")),
     );
 }
+
+#[test]
+fn add_empty_name_fails() {
+    let data = TempDir::new().unwrap();
+    racha(&data)
+        .args(["add", ""])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("no puede quedar vacío"));
+}
+
+#[test]
+fn add_whitespace_only_name_fails() {
+    let data = TempDir::new().unwrap();
+    racha(&data)
+        .args(["add", "   "])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("no puede quedar vacío"));
+}
+
+#[test]
+fn add_trims_name_before_persisting() {
+    let data = TempDir::new().unwrap();
+    racha(&data)
+        .args(["add", "  leer  "])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("hábito agregado: leer"));
+
+    // El nombre trimeado es el referenciable, y no hay duplicado con espacios.
+    racha(&data).args(["stats", "leer"]).assert().success();
+    racha(&data)
+        .args(["add", "leer"])
+        .assert()
+        .failure()
+        .stderr(predicates::str::contains("ya existe"));
+}
+
+#[test]
+fn check_trims_name_before_lookup() {
+    let data = TempDir::new().unwrap();
+    racha(&data).args(["add", "leer"]).assert().success();
+    racha(&data)
+        .args(["check", "  leer  "])
+        .assert()
+        .success()
+        .stdout(predicates::str::contains("racha actual: 1"));
+}

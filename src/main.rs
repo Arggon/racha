@@ -51,6 +51,13 @@ fn run(cli: Cli) -> Result<(), String> {
 
     match cli.command {
         Command::Add { name } => {
+            let name = name.trim().to_string();
+            if name.is_empty() {
+                return Err(
+                    "el nombre del hábito no puede quedar vacío (probá: racha add meditar)"
+                        .to_string(),
+                );
+            }
             if ledger.add_habit(name.clone(), today) {
                 storage::save(&dir, &ledger)?;
                 println!("hábito agregado: {name}");
@@ -59,6 +66,13 @@ fn run(cli: Cli) -> Result<(), String> {
             }
         }
         Command::Check { name } => {
+            let name = name.trim().to_string();
+            if name.is_empty() {
+                return Err(
+                    "el nombre del hábito no puede quedar vacío (probá: racha add meditar)"
+                        .to_string(),
+                );
+            }
             let (msg, changed) = {
                 let habit = ledger.habit_mut(&name).ok_or_else(|| {
                     format!("hábito inexistente: {name} (agregalo con `racha add {name}`)")
