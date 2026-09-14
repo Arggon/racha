@@ -7,6 +7,7 @@ parent: epic-streak-engine
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+depends_on: [story-streak-engine-spec]
 ---
 <!--
   Placement (v0): tasks/core/epic-streak-engine/story-stats-engine/story-stats-engine.md (story index; required).
