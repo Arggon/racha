@@ -1,6 +1,6 @@
 ---
 type: epic
-status: in_progress
+status: done
 id: epic-data-portability
 title: Portabilidad de datos
 parent: integraciones

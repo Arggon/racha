@@ -1,6 +1,6 @@
 ---
 type: initiative
-status: todo
+status: done
 id: integraciones
 title: Integraciones — escritorio y datos
 labels: []
