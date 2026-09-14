@@ -1,6 +1,6 @@
 ---
 type: story
-status: in_progress
+status: done
 id: story-notify-exploration
 title: "Exploración + ADR: canal de notificaciones nativas"
 assignee: Arggon
@@ -9,7 +9,6 @@ parent: epic-desktop-notifications
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T01:55:18.422Z"
 worktree_path: /home/arggon/Projects/racha-story-notify-exploration
 ---
 <!--
