@@ -109,7 +109,10 @@ mod tests {
         // 2026-09-13 es domingo; la semana es 7..13 de septiembre.
         let today = d(2026, 9, 13);
         let checks = vec![d(2026, 9, 7), d(2026, 9, 13)];
-        assert_eq!(week_view(&checks, today), [true, false, false, false, false, false, true]);
+        assert_eq!(
+            week_view(&checks, today),
+            [true, false, false, false, false, false, true]
+        );
     }
 
     #[test]

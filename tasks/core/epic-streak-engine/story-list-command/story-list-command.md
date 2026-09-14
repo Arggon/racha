@@ -1,12 +1,16 @@
 ---
 type: story
-status: todo
+status: in_progress
 id: story-list-command
 title: racha list — listado compacto de hábitos
+assignee: agent-race-a
+branch: feat/story-list-command
 parent: epic-streak-engine
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+claimed_at: "2026-09-14T02:05:02.113Z"
+worktree_path: /home/arggon/Projects/racha-story-list-command
 ---
 <!--
   Placement (v0): tasks/core/epic-streak-engine/story-list-command/story-list-command.md (story index; required).
