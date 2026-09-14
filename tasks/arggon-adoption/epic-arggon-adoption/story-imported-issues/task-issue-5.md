@@ -19,3 +19,6 @@ Portabilidad del ledger:
 
 Criterio de aceptación: round-trip export→import no pierde ni duplica checks.
 > imported from issue #5
+
+### 2026-09-14 @Arggon
+Implementado por story-export-import (PR #15): export CSV/JSON, import idempotente+atómico, round-trip byte-identical, runbook restore-de-datos.
