@@ -38,3 +38,6 @@ Closes #3.
 ## Notes
 
 - Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.
+
+### 2026-09-14 @Arggon
+Implementado y probado en vivo. Unidades en packaging/systemd/user/ (racha-remind.service oneshot con After=graphical-session.target; racha-remind.timer OnCalendar=*-*-* 09:00:00 + Persistent=true, WantedBy=timers.target). Instalación en 4 comandos en README (seccion Recordatorios programados). Runbooks: docs/runbooks/timer-no-dispara.md y docs/runbooks/notificaciones-no-aparecen.md (Wayland/DBus, fallback /run/user/$UID/bus, daemon Quickshell, exit 2). Evidencia del disparo real (systemctl --user start racha-remind.service, journal muestra 'vencido: meditar'): /tmp/racha-evidence/systemd-list-timers.txt, /tmp/racha-evidence/systemd-journalctl.txt y notificacion capturada en pantalla en /tmp/racha-evidence/timer-notificacion-real.png. OnCalendar elegido: *-*-* 09:00:00 (diario 09:00, con ejemplos de variante en el timer). PR #13 (squash-merged), Closes #3.
