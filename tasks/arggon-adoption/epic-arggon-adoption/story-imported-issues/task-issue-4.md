@@ -1,6 +1,6 @@
 ---
 type: task
-status: in_progress
+status: done
 id: task-issue-4
 title: "issue #4: Vista web de solo lectura"
 assignee: Arggon
@@ -8,7 +8,6 @@ parent: story-imported-issues
 labels: [enhancement]
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:25:47.836Z"
 issue: 4
 ---
 Reporte web de solo lectura servido localmente: rachas actuales, históricos, heatmap.
