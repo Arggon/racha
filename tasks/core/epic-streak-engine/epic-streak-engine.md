@@ -1,6 +1,6 @@
 ---
 type: epic
-status: todo
+status: in_progress
 id: epic-streak-engine
 title: Motor de rachas y estadísticas
 parent: core
