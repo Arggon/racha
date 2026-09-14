@@ -7,6 +7,7 @@ parent: epic-data-portability
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+depends_on: [story-streak-engine-spec]
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-data-portability/story-export-import/story-export-import.md (story index; required).
