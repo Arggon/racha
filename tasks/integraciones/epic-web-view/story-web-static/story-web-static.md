@@ -7,6 +7,7 @@ parent: epic-web-view
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
+depends_on: [story-streak-engine-spec]
 ---
 <!--
   Placement (v0): tasks/integraciones/epic-web-view/story-web-static/story-web-static.md (story index; required).
