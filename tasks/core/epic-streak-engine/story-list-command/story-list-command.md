@@ -1,6 +1,6 @@
 ---
 type: story
-status: in_progress
+status: done
 id: story-list-command
 title: racha list — listado compacto de hábitos
 assignee: agent-race-a
@@ -9,7 +9,6 @@ parent: epic-streak-engine
 labels: []
 created: "2026-09-14"
 updated: "2026-09-14"
-claimed_at: "2026-09-14T02:05:02.113Z"
 worktree_path: /home/arggon/Projects/racha-story-list-command
 ---
 <!--
@@ -37,4 +36,4 @@ de prueba de la carrera de claims (lock de `start --worktree`).
 - Story de la estructura multi-iniciativa (core/integraciones); ver docs/convention.md.
 
 ### 2026-09-14 @Arggon
-implementado por agent-race-a; resultado de la carrera: {"ok":false,"schemaVersion":1,"conventionVersion":3,"command":"start","error":{"message":"working tree has changes that block start (commit or stash first):\nmodified/staged tracked files (they could collide with the claim commit):\n  asks/core/epic-streak-engine/story-list-command/story-list-command.md","code":"START_FAILED"}}
+implementado por agent-race-a; resultado de la carrera: {"ok":true,"schemaVersion":1,"conventionVersion":3,"command":"start","item":{"id":"story-list-command","type":"story","status":"in_progress","title":"racha list — listado compacto de hábitos","assignee":"agent-race-a","branch":"feat/story-list-command","parent":"epic-streak-engine","labels":[],"created":"2026-09-14","updated":"2026-09-14","path":"tasks/core/epic-streak-engine/story-list-command/story-list-command.md","blocked_reason":null,"milestone":null,"depends_on":[],"claimed_at":"2026-09-14T02:05:02.113Z","worktree_path":"/home/arggon/Projects/racha-story-list-command","issue":null},"branch":"feat/story-list-command","created":true,"pushed":true,"prUrl":null,"worktreePath":"/home/arggon/Projects/racha-story-list-command","postStart":{"command":"cargo check","ok":true}}
